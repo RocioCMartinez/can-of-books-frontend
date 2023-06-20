@@ -1,0 +1,27 @@
+/* img {
+    height: 100px;
+    width: 50px;
+} */
+
+
+
+.carousel_container {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item > img {
+  height: 40vw;
+}
+
+nav {
+  color: white;
+}
+
+.navbar-brand {
+  padding: 0em 0em 0em 1em;
+}
+
+.nav-item {
+  padding: 1em 1em 1em 0em;
+}
