@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
+
 
 class BookFormModal extends React.Component {
   
@@ -16,23 +16,10 @@ class BookFormModal extends React.Component {
     }
     // this.props.createBook
     this.props.handleCloseModal();
-    this.postBook(bookObj);
+    this.props.postBook(bookObj);
   }
 
-  postBook = async (bookObj) => {
-    try {
-      let url = `${process.env.REACT_APP_SERVER}/books`;
-      let createdBookfromDB = await axios.post(url, bookObj);
-
-      // console.log(createdBookfromDB.data);
-      this.setState({
-        books: [...this.state.books, createdBookfromDB.data]
-      })
-
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  
 
   
 
