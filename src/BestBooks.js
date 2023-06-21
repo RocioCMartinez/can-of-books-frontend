@@ -3,14 +3,33 @@ import axios from 'axios';
 import { Carousel } from 'react-bootstrap';
 import './App.css';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import BookFormModal from './BookFormModal'
 
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books:[]
+      books:[],
+      showModal: false
     }
   }
+
+  handleOpenModal = () => {
+  
+    this.setState({
+      showModal: true,
+  
+    })
+  }
+  
+  handleCloseModal = () => {
+    this.setState({
+      showModal: false
+    })
+  }
+
+  
 
   getAllBooks = async () => {
     try {
@@ -29,6 +48,8 @@ class BestBooks extends React.Component {
     this.getAllBooks();
   }
 
+  
+
   render() {
 
     return (
@@ -43,9 +64,11 @@ class BestBooks extends React.Component {
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
                     <Card.Text>
-                      <p>Description: {book.description}</p>
-                      {/* <p>Status: {book.status}</p> */}
+                      Description: {book.description}
                     </Card.Text>
+                    {/* <Card.Text>
+                      Banned in Missouri: {book.status}
+                    </Card.Text> */}
                   </Card.Body>
                 </Card>
               </Carousel.Item>
@@ -54,6 +77,11 @@ class BestBooks extends React.Component {
             <h3>No Books Found :</h3>
           )}
         </Carousel>
+        <Button type='submit' onClick={this.handleOpenModal}> Add Book! </Button>
+        {this.state.showModal && (
+        <BookFormModal 
+        show={this.state.showModal} handleCloseModal={this.handleCloseModal} 
+        />)}
       </>
     );
   }
