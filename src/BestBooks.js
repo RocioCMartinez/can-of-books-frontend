@@ -48,6 +48,25 @@ class BestBooks extends React.Component {
     this.getAllBooks();
   }
 
+  deleteBook = async (id) => {
+    try {
+
+      let url = `${process.env.REACT_APP_SERVER}/books/${id}`;
+
+      await axios.delete(url);
+
+      let updatedBooks = this.state.books.filter(book => book._id !== id);
+
+      this.setState({
+        books: updatedBooks
+      })
+
+    } catch (error) {
+      console.log(error.message)
+      
+    }
+  }
+
   
 
   render() {
@@ -70,6 +89,7 @@ class BestBooks extends React.Component {
                       Banned in Missouri: {book.status}
                     </Card.Text> */}
                   </Card.Body>
+                  <Button onClick={ () => this.deleteBook(this.state.books._id)}> Delete </Button>
                 </Card>
               </Carousel.Item>
             ))
