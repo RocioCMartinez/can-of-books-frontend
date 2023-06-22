@@ -1,17 +1,9 @@
-/* img {
-    height: 100px;
-    width: 50px;
-} */
-
-
-
-.carousel_container {
+.carousel-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-}
-
-.carousel-item > img {
-  height: 40vw;
+  background: rgb(160, 52, 184);
 }
 
 nav {
