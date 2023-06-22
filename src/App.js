@@ -31,8 +31,8 @@ class App extends React.Component {
             </Route>
           </Routes>
           
-          <Footer />
         </Router>
+        <Footer />
       </>
     )
   }
