@@ -26,7 +26,7 @@ class BookFormModal extends React.Component {
   render() {
     return (
       <>
-        <Modal show={this.props.showUpdateModal} onHide={this.props.handleCloseModal}>
+        <Modal show={this.props.show} onHide={this.props.handleCloseModal}>
           <Modal.Header closeButton>
             <Modal.Title>New Book Form</Modal.Title>
           </Modal.Header>

@@ -141,6 +141,9 @@ class BestBooks extends React.Component {
                     <Card.Text>
                       Description: {book.description}
                     </Card.Text>
+                    <Card.Text>
+                      E-mail: {book.email}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Carousel.Item>
